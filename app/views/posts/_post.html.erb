@@ -1,8 +1,16 @@
 <div id="<%= dom_id post %>">
   <h2><%= post.title %></h2>
+<<<<<<< HEAD
   <h4>posted by <%= post.user.email %></h4>
+=======
+  <h4>posted by <%= link_to post.user.name, user_path(post.user) %></h4>
+>>>>>>> 6b340c01e8cdab98d4567c5f4a41e9e4d1cceb68
   <h6><%= pluralize(post.views, "view") %></h6>
   <div>
     <%= post.body %>
   </div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> 6b340c01e8cdab98d4567c5f4a41e9e4d1cceb68
