@@ -1,4 +1,11 @@
 
+<div class="comment-<%= comment.id %> container"
+    style="border: 1px solid black; padding: 1em; margin: 1em;">
+    <div id="comment-body-<%= comment.id %>">
+    <%= comment.body %>
+  </div><hr />
+
+
 <div style="width:1100px; background-color:white;">
 <div class="comment-<%= comment.id %> container"
     style="border: 1px solid black; padding: 1em; margin: 1em;">
@@ -26,9 +33,5 @@
        submit_label: "Update" %>
     </div>
   <% end %>
-  <hr />
-  <div id="comment-body-<%= comment.id %>">
-    <%= comment.body %>
-  </div>
 </div>
 </div>
