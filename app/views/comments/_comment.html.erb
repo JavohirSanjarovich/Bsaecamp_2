@@ -1,12 +1,3 @@
-
-<div class="comment-<%= comment.id %> container"
-    style="border: 1px solid black; padding: 1em; margin: 1em;">
-    <div id="comment-body-<%= comment.id %>">
-    <%= comment.body %>
-  </div><hr />
-
-
-<div style="width:1100px; background-color:white;">
 <div class="comment-<%= comment.id %> container"
     style="border: 1px solid black; padding: 1em; margin: 1em;">
   <%= comment.user.email %><br />
@@ -23,7 +14,9 @@
         action: "comments#toggleForm",
         comments_form_param: "edit-form-#{comment.id}",
         comments_body_param: "comment-body-#{comment.id}",
-      } %><br>
+        comments_edit_param: "edit-button-#{comment.id}"
+      },
+      id: "edit-button-#{comment.id}" %>
       <%= button_to "Delete", [post, comment], class:"btn btn-danger", method: :delete %>
     </div>
     <div id="edit-form-<%= comment.id%>" class="d-none">
@@ -33,5 +26,8 @@
        submit_label: "Update" %>
     </div>
   <% end %>
-</div>
+  <hr />
+  <div id="comment-body-<%= comment.id %>">
+    <%= comment.body %>
+  </div>
 </div>
