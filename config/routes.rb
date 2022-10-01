@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :filers
+  resources :attaches
   resources :tasks
   # /post/1/comment/4
   resources :posts do 
@@ -6,7 +8,8 @@ Rails.application.routes.draw do
   end
 
   resources :projects do
-    resources :tasks
+  resources :tasks
+  resources :filers
   
   end
   root 'pages#home'

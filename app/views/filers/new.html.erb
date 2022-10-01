@@ -1,0 +1,89 @@
+
+<%= form_for([@filer.project, @filer]) do |f| %>
+  <% if @filer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@filer.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @filer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card rounded-3">
+          <div class="card-body p-4">
+
+            <h4 class="text-center my-3 pb-3">To Do App</h4>
+
+            <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+              <div class="col-12">
+                 <div class="form-outline">
+                  <%= f.file_field :attach, class:"form-control", id: "form1" %>
+                </div>
+                <div class="form-outline">
+                  <%= f.text_area :description, class:"form-control", id: "form1" %>
+                  <label class="form-label" for="form1">Enter a task here</label>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <%= f.submit "Creat Attachment", class:"btn btn-primary"%>
+              </div>
+            </form>
+              <% end %>
+            <table class="table mb-4">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Attachment</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @filers.each do |filer| %>
+                <% if filer.persisted? %>
+                <tr>
+                  <th scope="row"><%= filer.id %></th>
+                  <td>
+                <% if filer.attach.attached? %>
+                <% if  filer.attach.image?%>
+                                    <h2 class="entry-title"><a href="#"><%= link_to image_tag(filer.attach, class: "img_upload"),  rails_blob_path(filer.attach, disposition: "attachment") %>
+                  
+                      <% elsif filer.attach.audio? %>
+                                    <h2 class="entry-title"><a href="#"><%= filer.attach.filename %>
+                                      <audio controls>
+                                       <source src=" <%= rails_blob_url(filer.attach, disposition: "attachment") %>" type="audio/mpeg"/>
+                                       </audio></a></h2>
+                   <% else %>
+                  <h2 class="entry-title"><a href="#"><%= link_to filer.attach.filename,  rails_blob_path(filer.attach, disposition: "attachment") %></a></h2>
+                                        
+                  <% end %>
+                  
+                  <% end %>
+                  
+                  </td>
+                  <td><%= filer.description %></td>
+                  <td>
+                    <%= link_to 'Destroy', [filer.project, filer], 'data-turbo-method': :delete, class:"btn btn-danger" %>
+                    <%= link_to 'Edit', edit_project_filer_path(filer.project, filer), class: "btn btn-success ms-1"  %>
+                  </td>
+                </tr>
+                <% end %>
+                <% end %>
+
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

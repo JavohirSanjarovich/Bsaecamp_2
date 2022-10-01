@@ -45,7 +45,9 @@
         <div class="card__title"><%= post.name %></div>
         <p class="card__text"><%= post.description %></p>
             <%= button_to 'Remove',  project_path(post), method: 'delete', data: { confirm: 'Are you sure?' },class:"btn1 btn--block card__btn" %> <br>
-            <%= button_to 'Edit', edit_project_path(post), method: 'get', class:"btn1 btn--block card__btn"%> 
+            <%= button_to 'Edit', edit_project_path(post), method: 'get', class:"btn1 btn--block card__btn"%> <br>
+            <%= link_to 'Show',  post,class:"btn1 btn--block card__btn" %> 
+      
       </div>
     </div>
   </div>
