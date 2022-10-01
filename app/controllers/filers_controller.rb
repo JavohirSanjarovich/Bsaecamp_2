@@ -48,7 +48,7 @@ class FilersController < ApplicationController
   # DELETE projects/1/tasks/1
   def destroy
       @filer.destroy
-          redirect_to project_filers_path
+          redirect_to new_project_filer_path
   end
 
   private
