@@ -96,6 +96,7 @@ GEM
       warden (~> 1.2.3)
     digest (3.1.0)
     erubi (1.11.0)
+    ffi (1.15.5)
     ffi (1.15.5-x64-mingw-ucrt)
     ffi (1.15.5-x86-mingw32)
     globalid (1.0.0)
@@ -141,11 +142,14 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
+    nokogiri (1.13.8-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.8-x64-mingw-ucrt)
       racc (~> 1.4)
     nokogiri (1.13.8-x86-mingw32)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pg (1.4.3)
     pg (1.4.3-x64-mingw-ucrt)
     pg (1.4.3-x86-mingw32)
     public_suffix (5.0.0)
@@ -238,6 +242,7 @@ GEM
     zeitwerk (2.6.0)
 
 PLATFORMS
+  arm64-darwin-21
   x64-mingw-ucrt
   x86-mingw32
 

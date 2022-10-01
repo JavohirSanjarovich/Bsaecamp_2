@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_17_120343) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_01_100813) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -77,6 +77,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_17_120343) do
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
+  create_table "task_projects", force: :cascade do |t|
+    t.string "name"
+    t.integer "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_task_projects_on_project_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.integer "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_tasks_on_project_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -97,4 +113,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_17_120343) do
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "task_projects", "projects"
+  add_foreign_key "tasks", "projects"
 end
