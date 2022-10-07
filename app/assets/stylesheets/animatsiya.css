@@ -92,11 +92,11 @@ html {
     font-weight: 700;
 }
 
-.btn {
+/* .btn {
   color: #fff;
   background-color: #0d6efd;
   border-color: #0d6efd;
-}
+} */
 .navbar {
   position: relative;
   display: flex;

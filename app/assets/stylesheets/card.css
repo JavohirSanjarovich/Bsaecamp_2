@@ -23,10 +23,10 @@
     padding: 0.5rem;
     text-transform: lowercase;
   }
-  .btn--block {
+  /* .btn--block {
     display: block;
-    width: 100%;
-  }
+    /* width: 100%; */
+  /* } */ 
   .cards {
     display: flex;
     flex-wrap: wrap;
@@ -107,4 +107,7 @@
 }
 
 /* card */
-
+.aziz{
+  width: 20%;
+  height: 38px;
+}

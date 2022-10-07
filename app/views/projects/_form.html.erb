@@ -1,5 +1,5 @@
 <%= form_with(model: project) do |form| %>
- <div class="cotainer" style="margin-top:200px">
+<div class="cotainer" style="margin-top:200px">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -19,11 +19,12 @@
                                   <%= form.text_area :description, class:"form-control"  %>
                                 </div>  
                             </div>
+                            <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
                             <br>
-
                             <div class="col-md-6 offset-md-4">
                                 <%= form.submit class: "btn btn-primary" , style:"margin-left:10px" %>
                               <% end %>
+                              <%= link_to "Back", root_path, style: "text-decoration: none; margin-left: 10px;" %>
                             </div>
                     </div>
                     </form>
