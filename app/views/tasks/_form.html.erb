@@ -1,3 +1,4 @@
+<div align="center">
 <div class="div_edit_task">
 <%= form_for([@task.project, @task]) do |f| %>
   <% if @task.errors.any? %>
@@ -19,5 +20,10 @@
   <div class="actions">
     <%= f.submit "Edit", class: "btn btn-primary"%>
   </div>
+  <div>
+<%= link_to "Back", new_project_task_path(@project) %>
+  
+  </div>
 <% end %>
+</div>
 </div>
