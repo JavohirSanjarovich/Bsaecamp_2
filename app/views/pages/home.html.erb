@@ -41,23 +41,28 @@
 <% @posts.each do |post| %>
  <% if post.user_id == current_user.id %>
 <div class="card 1">
-  <div class="card_image"> <img src="https://picsum.photos/200/300"/> </div>
+  <div class="card_image"> <%= image_tag "back.jpg" %> </div>
   <div class="card_title title-white">
-    <p><%= post.name %></p>
+    <p style="margin-top: -211px;"><%= post.name %></p>
+
+  </div>
+    <div class="card_title title-white">
+    <p style="margin-top: -113px;"><%= post.description %></p>
+
   </div>
 
 <div>
-            <%= link_to edit_project_path(post), method: 'get', style: "margin-left: 19px; font-size: 20px;" do%>
-<i class="bi bi-pencil"></i>
+            <%= link_to edit_project_path(post), method: 'get', style: "margin-left: 19px; font-size: 20px; color: #feff9d;" do%>
+<i class="bi bi-pen"></i>
             <% end %> 
             <%= link_to post do %>
-  <i class="bi bi-eye" style="margin-left: 95px; font-size: 20px;"></i>
+  <i class="bi bi-eye" style="margin-left: 95px; font-size: 20px; color: #feff9d;"></i>
 <% end %>
 </div>
 
   <div style="margin-top: -30px; margin-left: 271px; font-size: 20px;">
        <%= link_to project_path(post),'data-turbo-method': :delete  do%>
-<i class="bi bi-trash3-fill"></i>
+<i class="bi bi-trash3-fill" style="color: #feff9d;"></i>
        <% end %>
 
   </div>
