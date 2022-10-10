@@ -10,7 +10,7 @@ class TasksController < ApplicationController
 
   # GET projects/1/tasks/1
   def show
-      
+      @users = User.all
   end
 
   # GET projects/1/tasks/new
