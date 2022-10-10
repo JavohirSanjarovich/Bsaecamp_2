@@ -14,7 +14,7 @@
   <tr>
     <td><%= task.name %></td>
     <td><%= task.project %></td>
-    <td><%= link_to 'Show', [task.project, task] %></td>
+    <td><%= link_to 'Show', [task.project, task], class: "btn btn-info" %></td>
     <td><%= link_to 'Edit', edit_project_task_path(task.project, task) %></td>
     <td><%= link_to 'Destroy', [task.project, task], 'data-turbo-method': :delete %></td>
   </tr>

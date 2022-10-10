@@ -1,18 +1,7 @@
 
 <%= form_for([@filer.project, @filer]) do |f| %>
-  <% if @filer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@filer.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-      <ul>
-      <% @filer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<section class="vh-100" style="background-color: #eee;">
+<section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-lg-9 col-xl-7">
@@ -47,7 +36,9 @@
                   <th scope="col">Id</th>
                   <th scope="col">Description</th>
                   <th scope="col">Attachment</th>
-                  <th scope="col">Actions</th>
+                  <th scope="col">Show</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -75,8 +66,13 @@
                   </td>
                   <td><%= filer.description %></td>
                   <td>
-                    <%= link_to 'Destroy', [filer.project, filer], 'data-turbo-method': :delete, class:"btn btn-danger" %>
+                  <%= link_to "Show", project_filer_path(@project, filer), class: "btn btn-info" %>
+                  </td>
+                  <td>
                     <%= link_to 'Edit', edit_project_filer_path(filer.project, filer), class: "btn btn-success ms-1"  %>
+                  </td>
+                  <td>
+                    <%= link_to 'Destroy', [filer.project, filer], 'data-turbo-method': :delete, class:"btn btn-danger" %>
                   </td>
                 </tr>
                 <% end %>

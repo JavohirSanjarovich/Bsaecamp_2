@@ -38,8 +38,6 @@ class TasksController < ApplicationController
   def update
     if @task.update(task_params)
       redirect_to new_project_task_path
-    else
-      render action: 'edit'
     end
   end
 

@@ -1,18 +1,7 @@
 
 <%= form_for([@task.project, @task]) do |f| %>
-  <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-      <ul>
-      <% @task.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<section class="vh-100" style="background-color: #eee;">
+<section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-lg-9 col-xl-7">
@@ -43,7 +32,9 @@
                 <tr>
                   <th scope="col">Id</th>
                   <th scope="col">Description</th>
-                  <th scope="col">Actions</th>
+                  <th scope="col">Show</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -53,8 +44,13 @@
                   <th scope="row"><%= task.id %></th>
                   <td><%= task.name %></td>
                   <td>
-                    <%= link_to 'Destroy', [task.project, task], 'data-turbo-method': :delete, class:"btn btn-danger" %>
+                  <%= link_to "Show", project_task_path(@project, task), class: "btn btn-info" %>
+                  </td>
+                  <td>
                     <%= link_to 'Edit', edit_project_task_path(task.project, task), class: "btn btn-success ms-1"  %>
+                  </td>
+                  <td>
+                    <%= link_to 'Destroy', [task.project, task], 'data-turbo-method': :delete, class:"btn btn-danger" %>
                   </td>
                 </tr>
                 <% end %>

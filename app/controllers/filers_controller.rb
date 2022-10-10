@@ -31,8 +31,6 @@ class FilersController < ApplicationController
 
     if @filer.save
       redirect_to new_project_filer_path
-    else
-      render action: 'new'
     end
   end
 
